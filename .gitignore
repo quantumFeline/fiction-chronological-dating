@@ -1,0 +1,6 @@
+*.txt
+*.bz2
+*.xml
+*.json
+.idea/
+.directory
