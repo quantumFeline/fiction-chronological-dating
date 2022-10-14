@@ -26,6 +26,5 @@ if __name__ == "__main__":
     with io.StringIO() as f:
         f.write("Short text. Second sentence in the text.")
         f.seek(0)
-        # print(f.read())
         preprocessor = TextPreprocessor(f)
         preprocessor.process()

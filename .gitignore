@@ -3,4 +3,5 @@
 *.xml
 *.json
 .idea/
+__pycache__/
 .directory
