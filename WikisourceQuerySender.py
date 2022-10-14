@@ -18,7 +18,7 @@ class WikisourceQuerySender:
         # FIXME: Hack. Probably better to use wikidata SPARQL query
         # (or use dumps which might be better for large amounts of data)
         # print(categories)
-        year = re.search("(?<=(Category:))[0-9]+(?=( works))", categories).group(0)
+        year = int(re.search("(?<=(Category:))[0-9]+(?=( works))", categories).group(0))
         doc = r.json()['query']['pages'][0]
         title = doc['title']
         text = doc['extract']

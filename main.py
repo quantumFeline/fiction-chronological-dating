@@ -14,4 +14,8 @@ if __name__ == '__main__':
 
     f = open("data.json", "w")
     json.dump(data, f, ensure_ascii=False, indent=4)
+    f.close()
+
+    preprocessor = TextPreprocessor("data.json")
+    preprocessor.process()
 
