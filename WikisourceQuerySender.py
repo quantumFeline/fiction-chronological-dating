@@ -6,6 +6,7 @@ import requests
 
 class WikisourceQuerySender:
     def __init__(self):
+        self.last_query_result = None
         pass
 
     def parse(self, name: string) -> dict:
@@ -24,7 +25,8 @@ class WikisourceQuerySender:
         text = doc['extract']
         # print(title)
         # print(year)
-        return {"title": title, "text": text, "year": year}
+        self.last_query_result = {"title": title, "text": text, "year": year}
+        return self.last_query_result
 
 
 if __name__ == "__main__":

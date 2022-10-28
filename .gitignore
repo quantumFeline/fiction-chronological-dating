@@ -1,7 +1,10 @@
 *.txt
 *.bz2
+*.gz
 *.xml
 *.json
 .idea/
 __pycache__/
 .directory
+.ipynb_checkpoints/
+venv/

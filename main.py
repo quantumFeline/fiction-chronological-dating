@@ -17,5 +17,9 @@ if __name__ == '__main__':
     f.close()
 
     preprocessor = TextPreprocessor("data.json")
-    preprocessor.process()
+    chunks = preprocessor.process()
+
+    f_chunk = open("data_chunked.json", "w")
+    json.dump(chunks, f_chunk, ensure_ascii=False, indent=4)
+    f_chunk.close()
 
