@@ -20,6 +20,7 @@ class TextPreprocessor:
 
     def chunk_item(self, item: dict, chunk_size: int = 1000, n_chunks: int = 10) -> list:
         print(item)
+        # self.find_terminology(item)
         title, text, year = item["title"], item["text"], item["year"]
         # We do not cut the text into perfect non-overlapping pieces; they may overlap.
         nlp = spacy.load("en_core_web_sm")

@@ -8,11 +8,11 @@ def read_xml():
     with open('enwikisource-20221020-pages-articles-multistream.xml', "rb") as f:
         while True:
             line = f.readline()
-            #print(line)
+            print("Line:", line.replace("\n".encode('utf-8'), "\\n".encode('utf-8')))
             parser.feed(line)
             for event, elem in parser.read_events():
-                print(event)
-                print(elem.tag, 'text=', elem.text)
+                print(event, elem.text)
+                #print(elem.tag, 'text=', elem.text)
                 print("\n\n")
             i += 1
             if i > 1000:
