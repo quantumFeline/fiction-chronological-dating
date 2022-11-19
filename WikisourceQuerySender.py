@@ -46,8 +46,8 @@ class WikisourceQuerySender:
         return text
 
 
-RAW_QUERY_PATH = "query.json"
-DATA_PATH = "data2.json"
+RAW_QUERY_PATH = "query2.json"
+DATA_PATH = "data.json"
 FILTERED_PATH = "cannot_load.json"
 add_filter = ["An Outpost of Progress", "The Machine Stops", "The Merry Men", "Rogues in the House", "Markheim",
               "The Tower of the Elephant", "The Pool of the Black One", "The Story of Mimi-Nashi-H\u014d\u00efchi",
@@ -65,9 +65,9 @@ if __name__ == "__main__":
     with open(RAW_QUERY_PATH, "rb") as fq:
         book_names = json.load(fq)
         for entry in book_names:
-            #next_command = input()
-            #if next_command == "q":
-            #    break
+            next_command = input()
+            if next_command == "q":
+                break
 
             title = entry["itemLabel"]
             if title in titles:

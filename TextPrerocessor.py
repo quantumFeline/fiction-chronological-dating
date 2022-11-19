@@ -8,6 +8,9 @@ from spacy.lang.en import English  # updated
 from numpy import random as nrandom
 
 
+data_files = ["data.json", "data2.json"]
+
+
 class TextPreprocessor:
 
     def __init__(self, filename: string = "input.txt", data: object = None):
@@ -39,6 +42,14 @@ class TextPreprocessor:
             chunks.append({"title": title, "text": chunk, "year": year})
         return chunks
 
+    def chunk_all(self, output_file: string):
+        chunks_all = []
+        for entry in self.data:
+            chunks = self.chunk_item(entry)
+            chunks_all += chunks
+        with open(output_file, "w") as f_data_chunked:
+            json.dump(chunks_all, f_data_chunked, indent=4)
+
     def process(self):
         items = self.chunk_item(self.data[0])
         nlp = spacy.load("en_core_web_sm")
@@ -54,7 +65,12 @@ class TextPreprocessor:
 
 
 if __name__ == "__main__":
-    with tempfile.NamedTemporaryFile() as f:
-        data = [{"title": "", "text": "Short text. Second sentence in the text.", "year": 1000}]
-        preprocessor = TextPreprocessor(data=data)
-        preprocessor.process()
+    # with tempfile.NamedTemporaryFile() as f:
+    #     data = [{"title": "", "text": "Short text. Second sentence in the text.", "year": 1000}]
+    #     preprocessor = TextPreprocessor(data=data)
+    #     preprocessor.process()
+    data = []
+    for file in data_files:
+        data += json.load(open(file, "rb"))
+    preprocessor = TextPreprocessor(data=data)
+    preprocessor.chunk_all("data_chunked_full.json")
