@@ -8,9 +8,6 @@ from spacy.lang.en import English  # updated
 from numpy import random as nrandom
 
 
-data_files = ["data.json", "data2.json"]
-
-
 class TextPreprocessor:
 
     def __init__(self, filename: string = "input.txt", data: object = None):
@@ -65,12 +62,6 @@ class TextPreprocessor:
 
 
 if __name__ == "__main__":
-    # with tempfile.NamedTemporaryFile() as f:
-    #     data = [{"title": "", "text": "Short text. Second sentence in the text.", "year": 1000}]
-    #     preprocessor = TextPreprocessor(data=data)
-    #     preprocessor.process()
-    data = []
-    for file in data_files:
-        data += json.load(open(file, "rb"))
+    data = json.load(open("data.json", "rb"))
     preprocessor = TextPreprocessor(data=data)
     preprocessor.chunk_all("data_chunked_full.json")

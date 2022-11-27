@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 def read_xml():
     parser = ET.XMLPullParser(['start', 'end'])
     i = 0
-    with open('enwikisource-20221020-pages-articles-multistream.xml', "rb") as f:
+    with open('../../corpus/enwikisource-20221020-pages-articles-multistream.xml', "rb") as f:
         while True:
             line = f.readline()
             print("Line:", line.replace("\n".encode('utf-8'), "\\n".encode('utf-8')))

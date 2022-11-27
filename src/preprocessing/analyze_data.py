@@ -1,3 +1,7 @@
+"""
+Make a simple graph which shows the data we collected and chunked, by year.
+"""
+
 import json
 import matplotlib.pyplot as plt
 
