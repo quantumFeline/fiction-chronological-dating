@@ -5,7 +5,7 @@ Make a simple graph which shows the data we collected and chunked, by year.
 import json
 import matplotlib.pyplot as plt
 
-files = ["data.json", "data2.json"]
+files = ["data/data_chunked_full.json"]
 CURRENT_YEAR = 2022
 
 if __name__ == "__main__":
