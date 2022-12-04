@@ -44,12 +44,12 @@ FILTERED_PATH = "../../data/cannot_load.json"
 
 
 def category(year):
-    if year < 1900:
-        return {"<1900": True, "1900-1930": False, ">1930": False}
-    elif year < 1930:
-        return {"<1900": False, "1900-1930": True, ">1930": False}
+    if year < 1870:
+        return {"<1870": True,  "1870-1900": False, ">1900": False}
+    elif year < 1900:
+        return {"<1870": False, "1870-1900": True,  ">1900": False}
     else:
-        return {"<1900": False, "1900-1930": False, ">1930": True}
+        return {"<1870": False, "1870-1900": False, ">1900": True}
 
 
 def make_docs(data):
